@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IndexComponent } from './index/index.component';
-
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
-
 import { PagesRoutingModule } from './pages-routing.module';
-
-import { SharedModule } from '../shared/shared.module';
-import { Index2Component } from './index2/index2.component';
-import { Index3Component } from './index3/index3.component';
-import { Index4Component } from './index4/index4.component';
-import { Index5Component } from './index5/index5.component';
-import { Index6Component } from './index6/index6.component';
-
+import { SharedModule } from './shared.module';
+import { IndexComponent } from './index/index.component';
+import { FeaturesComponent } from './features/features.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { BlogComponent } from './blog/blog.component';
+import { ContactComponent } from './contact/contact.component';
+import { ServicesComponent } from './services/services.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
-  declarations: [IndexComponent, Index2Component, Index3Component, Index4Component, Index5Component, Index6Component],
+  declarations: [IndexComponent,FeaturesComponent, PricingComponent, BlogComponent, ContactComponent, ServicesComponent, FooterComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
