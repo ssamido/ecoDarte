@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrimengModule } from './primeng.module';
 
 @NgModule({
   declarations: [
@@ -12,8 +11,7 @@ import { PrimengModule } from './primeng.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule,
-    PrimengModule
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
