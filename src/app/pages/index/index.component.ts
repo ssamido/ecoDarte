@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -14,9 +15,13 @@ export class IndexComponent implements OnInit {
 
   currentSection = 'home';
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private router : Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToOffers(): void {
+    this.router.navigateByUrl('/offers')
   }
 
   /**

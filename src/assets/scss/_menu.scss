@@ -1,4 +1,4 @@
-/* 
+/*
 // 2. Menu
 */
 
@@ -25,6 +25,7 @@
         }
         .ligo-light {
             display: inline-block;
+            height: 3rem !important;
         }
     }
     .navbar-nav {
@@ -64,6 +65,7 @@
     .logo {
         .logo-dark {
             display: inline-block;
+            height: 2em;
         }
         .logo-light {
             display: none;
@@ -153,10 +155,11 @@
             }
         }
     }
-    
+
     .logo {
         .logo-dark {
             display: inline-block !important;
+            height: 2.5em !important;
         }
         .logo-light {
             display: none !important;
