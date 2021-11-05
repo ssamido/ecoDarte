@@ -1,3 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
+
+.p-slider .p-slider-range {
+    background: #5ad9ac !important;
+}
+
+.p-slider .p-slider-handle {
+    border: 2px solid #5ad9ac !important;
+}
+
+.p-steps .p-steps-item.p-highlight .p-steps-number {
+    background: #E8F5E9  ;
+    color: #5ad9ac !important;
+    font-size: 30px !important;
+     
+}
+
+ 
+ 
+
+.p-steps .p-steps-item  {
+    .p-steps-number {
+ 
+        font-size: 30px !important;
+         
+    }
+    
+    .p-menuitem-link  {
+        background:  transparent !important;
+        .p-steps-number {
+            min-width: 3rem !important ;
+            height: 3rem !important;
+        }
+    }
+}
+
+.offerCarousel {
+    .rounded {
+        border-radius: 3.25rem !important;
+    }
+    .p-4 {
+        padding: 0.5rem !important;
+    }
+    .pricing-box .pricing-item li {
+        padding: 5px 0;
+    }
+}
+
+.montantOffer {
+    font-size: 40px;
+    color : #5ad9ac;
+}

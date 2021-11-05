@@ -11,27 +11,42 @@
       </div>
 
       <div class="col-lg-5 offset-lg-1">
-        <p-steps [model]="items"  [(activeIndex)]="activeIndex"></p-steps>
-
-        <h3 class="font-weight-semibold line-height-1_4 mb-4">Choisissez votre <b>plan</b></h3>
-        <p class="text-muted font-size-15 mb-4">selectionner les mensualitées et le montant souhaitées  </p>
-
-        <p class="text-muted">
-          <i-feather class="icon-xs mr-1" name="calendar"></i-feather> Mensualité : <b>{{params.mensualite}}</b>
-        </p>
-        <p-slider   (onChange)="handleChange($event)" [(ngModel)]="params.mensualite"  [step]="12" [min]="24" [max]="96" > </p-slider>
+        <p-steps   [model]="items"  [(activeIndex)]="activeIndex"></p-steps>
         <br/>
-        <p class="text-muted">
-          <i-feather class="icon-xs mr-1" name="calendar"></i-feather> Montant : <b>{{params.montantTotal}}</b>
-        </p>
-        <p-slider (onChange)="handleChange($event)" [(ngModel)]="params.montantTotal"  [step]="12" [min]="24" [max]="96"> </p-slider>
-        <div class="p-grid">
-          <div class="p-col-2">
-            <a href="javascript: void(0);" class="btn btn-soft-primary">Buy Now</a>
-          </div>
-          <div class="p-col-2"></div>
-          <div class="p-col-2">
-            <a (click)='moveNext()' class="btn btn-primary mr-2">Read More</a>
+        <!--First Step-->
+        <div *ngIf='activeIndex == 0'>
+              <h3 class="font-weight-semibold line-height-1_4 mb-4">Choisissez vos <b>mensualités</b></h3>
+              <p class="text-muted font-size-15 mb-4">la durée minimum est de 24 mois ainsi la durée maximum est de 96mois  </p>
+
+              <p class="text-muted">
+                <i-feather class="icon-xs mr-1" name="calendar"></i-feather> Mensualité : <b>{{params.mensualite}}</b>
+              </p>
+              <p-slider   (onChange)="handleChange($event)" [(ngModel)]="params.mensualite"  [step]="12" [min]="24" [max]="96" > </p-slider>
+          
+      
+            
+       </div>
+
+        <!--Second Step-->
+        <div *ngIf='activeIndex == 1'>
+          <h3 class="font-weight-semibold line-height-1_4 mb-4">Choisissez le  <b>montant</b> souhaité</h3>
+          <p class="text-muted font-size-15 mb-4">la marge des montants est relative aux mensualités indiquées </p>
+
+        
+       
+          <p class="text-muted">
+            <i-feather class="icon-xs mr-1" name="dollar-sign"></i-feather> Montant : <b>{{params.montantTotal}}</b>
+          </p>
+          <p-slider (onChange)="handleChange($event)" [(ngModel)]="params.montantTotal"  [step]="12" [min]="24" [max]="96"> </p-slider>
+        
+        </div>
+       <div  class="row navigateOffer">
+        <div class="col-4">
+          <a *ngIf='activeIndex>0' (click)='moveBack()' class="btn btn-soft-secondary prevButton">Précedent</a>
+        </div>
+        <div class="col-3"></div>
+        <div class="col-5">
+          <a    (click)='moveNext()' class="btn btn-primary nextButton ">Suivant</a>
           </div>
       </div>
 

@@ -1,0 +1,16 @@
+.navigateOffer {
+    margin-top: 30px;
+    .nextButton {
+        float: right;
+    }
+    .prevButton {
+        float: left;
+    }
+}
+
+.disableButton {
+    opacity: 0.5;
+    pointer-events: none;
+}
+ 
+

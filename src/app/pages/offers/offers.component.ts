@@ -8,36 +8,36 @@ import {MenuItem} from 'primeng/api';
 })
 export class OffersComponent implements OnInit {
   items: MenuItem[];
-  activeIndex: number = 1;
+  activeIndex: number = 0;
   params: Params = {};
-  val: number
+  val: number;
 
   constructor() { }
 
   ngOnInit(): void {
     this.items = [{
-      label: 'Personal',
+      label: 'Mensualité',
       command: (event: any) => {
           this.activeIndex = 0;
 
       }
   },
   {
-      label: 'Seat',
+      label: 'Montant',
       command: (event: any) => {
           this.activeIndex = 1;
 
       }
   },
   {
-      label: 'Payment',
+      label: 'Offre',
       command: (event: any) => {
           this.activeIndex = 2;
 
       }
   },
   {
-      label: 'Confirmation',
+      label: 'informations',
       command: (event: any) => {
           this.activeIndex = 3;
 
@@ -47,9 +47,14 @@ export class OffersComponent implements OnInit {
   }
 
   moveNext():void {
-    this.activeIndex= 3
+    this.activeIndex++;
+  }
+  moveBack():void {
+    this.activeIndex--;
   }
   handleChange($event) : void {
 
   }
+
+ 
 }

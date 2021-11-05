@@ -19,10 +19,12 @@ import { OffersComponent } from './pages/offers/offers.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { SharedModule } from './pages/shared.module';
+import { NgMaterialIconModule } from "ng-material-icon";
 @NgModule({
   declarations: [AppComponent,IndexComponent,FeaturesComponent, PricingComponent, BlogComponent,OffersComponent, ContactComponent, ServicesComponent, FooterComponent],
   imports: [
     BrowserModule,
+    NgMaterialIconModule,
     AppRoutingModule,
     CommonModule,
     SharedModule,
@@ -35,7 +37,8 @@ import { SharedModule } from './pages/shared.module';
     SharedModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
