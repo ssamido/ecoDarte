@@ -14,19 +14,19 @@
     background: #E8F5E9  ;
     color: #5ad9ac !important;
     font-size: 30px !important;
-     
+
 }
 
- 
- 
+
+
 
 .p-steps .p-steps-item  {
     .p-steps-number {
- 
+
         font-size: 30px !important;
-         
+
     }
-    
+
     .p-menuitem-link  {
         background:  transparent !important;
         .p-steps-number {
@@ -38,17 +38,29 @@
 
 .offerCarousel {
     .rounded {
-        border-radius: 3.25rem !important;
+      border-radius: 2rem!important;
+      border: 0.5px  solid #80808038;
     }
     .p-4 {
-        padding: 0.5rem !important;
+        padding: 0.2rem !important;
+        max-width: 10.7rem;
+        margin: 0.3rem;
     }
     .pricing-box .pricing-item li {
         padding: 5px 0;
+
     }
 }
 
 .montantOffer {
-    font-size: 40px;
+    font-size: 30px;
     color : #5ad9ac;
+}
+
+.p-component {
+  font-family: "Muli", sans-serif !important;
+}
+
+.errorMsg {
+  color: #f44336;
 }

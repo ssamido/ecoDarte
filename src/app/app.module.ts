@@ -19,12 +19,12 @@ import { OffersComponent } from './pages/offers/offers.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { SharedModule } from './pages/shared.module';
-import { NgMaterialIconModule } from "ng-material-icon";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [AppComponent,IndexComponent,FeaturesComponent, PricingComponent, BlogComponent,OffersComponent, ContactComponent, ServicesComponent, FooterComponent],
   imports: [
     BrowserModule,
-    NgMaterialIconModule,
+    FontAwesomeModule,
     AppRoutingModule,
     CommonModule,
     SharedModule,
@@ -38,7 +38,7 @@ import { NgMaterialIconModule } from "ng-material-icon";
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+@import "../../../assets/scss/variables";
 .navigateOffer {
     margin-top: 30px;
     .nextButton {
@@ -12,5 +13,30 @@
     opacity: 0.5;
     pointer-events: none;
 }
- 
 
+
+.priceZone {
+  border-top: 0.5px  solid #80808038;
+  border-bottom: 0.5px  solid #80808038;
+  padding-top: 0.5rem;
+    width: 105%;
+    margin-left: -2%;
+}
+
+.detailOffer {
+  font-size: 13px;
+  color: $secondary;
+}
+.detailFrais {
+  color: $primary;
+  font-weight: bold;
+}
+
+.collectTitle {
+  font-size: 14px;
+}
+.detailZone {
+  padding : 1rem 0 5rem 0.2rem;
+  margin-left: 10px;
+
+}
