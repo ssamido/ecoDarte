@@ -2,8 +2,13 @@
 <section class="section bg-light feather-bg-img" style="background-image: url(assets/images/features-bg-img.png);"
   id="features">
   <div class="container">
-
-    <div class="row align-items-center">
+          <!-- LOGO -->
+          <div class="text-center mb-5">
+          <a class="navbar-brand logo" href="/">
+            <img src="assets/images/logo-dark.png" alt="" class="logo-dark" height="70" />
+           </a>
+          </div>
+    <div *ngIf='activeIndex < 4' class="row align-items-center">
       <div class="col-lg-4">
         <div class="mb-4 mb-lg-0">
           <img src="assets/images/features-img.png" alt="" class="img-fluid d-block mx-auto">
@@ -19,7 +24,8 @@
               <p class="text-muted font-size-15 mb-4">la durée minimum est de 24 mois ainsi la durée maximum est de 96mois  </p>
 
               <p class="text-muted">
-                <fa-icon class="icon-xs mr-2"  [icon]="faMonthIcon"></fa-icon> Mensualité : <b>{{params.nbrMois}}</b>
+                <fa-icon class="icon-xs mr-2"  [icon]="faMonthIcon"></fa-icon> Mensualité :
+                <b class="verdure" style="font-size: 20px;">{{params.nbrMois}}</b>
               </p>
               <p-slider   (onSlideEnd)="handleChange()" [(ngModel)]="params.nbrMois" [step]="12" [min]="params.minDure" [max]="params.maxDure" > </p-slider>
 
@@ -35,7 +41,8 @@
 
 
           <p class="text-muted">
-            <fa-icon class="icon-xs mr-2"  [icon]="faMoneyIcon"></fa-icon>Montant : <b>{{params.montantTotal}}</b>
+            <fa-icon class="icon-xs mr-2"  [icon]="faMoneyIcon"></fa-icon>Montant :
+            <b class="verdure" style="font-size: 20px;">{{params.montantTotal}} €</b>
           </p>
           <p-slider (onSlideEnd)="handleChange()"  [(ngModel)]="params.montantTotal" [step]="100" [min]="params.minDarte" [max]="params.maxDarte"> </p-slider>
 
@@ -46,19 +53,19 @@
           <h3 class="font-weight-semibold line-height-1_4 mb-4">Choisissez l'<b>offre</b> qui vous correspond</h3>
           <p class="text-muted font-size-15 mb-4">les frais de services sont fixes , les frais de priorités ne dépendent pas du montant choisi</p>
 
-
+          <p class="errorMsg" *ngIf='noOfferSelected'>Veuillez choisir une offre qui vous correspond le plus ! </p>
 
           <p-carousel [value]="offers" [numVisible]="3" [numScroll]="3" [circular]="false"
           [responsiveOptions]="responsiveOptions">
 
           <ng-template  let-offer pTemplate="item">
 
-            <div class="offerCarousel">
+            <div class="offerCarousel" [ngClass]="(selectedOffer.numPriorite == offer.numPriorite)? 'active' : ''">
               <div class="offer-item-content">
                 <div>
-                  <div class="pricing-box rounded text-center p-4">
+                  <div [ngClass]="(selectedOffer.numPriorite == offer.numPriorite)? 'active' : ''" class="pricing-box rounded text-center  p-4">
                     <div class="pricing-icon-bg my-3">
-                      #1
+                      <b>#{{offer.numPriorite}}</b>
                     </div>
 
                     <h4 class="title mb-3">
@@ -69,7 +76,7 @@
                       </ng-template>
                     </h4>
                     <div class="priceZone">
-                    <p ><b  class="montantOffer"><sup class="h4 mr-2  ">€</sup>{{offer.totalFrais}}</b>  <span style="font-size: 20px;"> / mois</span></p>
+                    <p ><b  class="montantOffer"><sup class="h4 mr-2  ">€</sup>{{offer.mensualiteTotal}}</b>  <span style="font-size: 20px;"> / mois</span></p>
                     </div>
 
                     <ul class="list-unstyled pricing-item mb-4 detailZone">
@@ -78,13 +85,13 @@
                          Mensualité : <span class="detailFrais">{{params.mensualite}} €</span>
                       </li>
                       <li class="text-muted detailOffer"> <i class="pi pi-check" style="color: #5ad9ac"></i>
-                        Frais Service : <span class="detailFrais">{{offer.fraisService}}€</span>
+                        Frais Service : <span class="detailFrais">{{offer.fraisService}} €</span>
                       </li>
                       <li class="text-muted detailOffer"><i class="pi pi-check" style="color: #5ad9ac"></i>
-                        Frais Priorité : <span class="detailFrais">{{offer.fraisPriorite}}€</span>
+                        Frais Priorité : <span class="detailFrais">{{offer.fraisPriorite}} €</span>
                       </li>
                     </ul>
-                    <a href="javascript: void(0);" class="btn btn-outline-primary pr-btn">S'inscrire</a>
+                    <a (click)='selectOffer(offer)' [ngClass]="(selectedOffer.numPriorite == offer.numPriorite)? 'active' : ''" class="btn btn-outline-primary  pr-btn">S'inscrire</a>
                     <div class="mt-4">
                       <div class="hero-bottom-img">
                         <img src="assets/images/pricing-bottom-bg.png" alt="" class="img-fluid d-block mx-auto">
@@ -101,13 +108,13 @@
         </div>
         <!--infos Step-->
         <div *ngIf='activeIndex == 3'>
-        <form>
+        <form [formGroup]="demandeForm">
           <div class="row">
 
-                <p-radioButton class="ml-2"   name="sexe" value="H" [(ngModel)]="demande.sexe" inputId="homme"></p-radioButton>
+                <p-radioButton class="ml-2" formControlName='sexe'   value="H"   inputId="homme"></p-radioButton>
                 <label class="ml-1"   for="Homme">Mr</label>
 
-                <p-radioButton class="ml-3"   name="sexe" value="F"  [(ngModel)]="demande.sexe"  inputId="femme"></p-radioButton>
+                <p-radioButton class="ml-3"   formControlName='sexe'  value="F"    inputId="femme"></p-radioButton>
                 <label class="ml-1"   for="femme">Mme</label>
 
          </div>
@@ -115,53 +122,97 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="name">Nom*</label>
-                <input id="name" type="text" class="form-control" autocomplete="off" placeholder="votre nom ...">
+                <input id="name" type="text" pInputText  formControlName='nom' class="form-control" autocomplete="off" placeholder="Votre nom ...">
+                <small *ngIf="demandeForm.controls.nom.errors?.required && showError" class="p-error">le nom est obligatoire</small>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="Prenom">Prénom*</label>
-                <input id="Prenom" type="text" class="form-control" autocomplete="off" placeholder="Votre prénom...">
+                <input id="Prenom" type="text" pInputText formControlName='prenom' class="form-control" autocomplete="off" placeholder="Votre prénom...">
+                <small *ngIf="demandeForm.controls.prenom.errors?.required && showError" class="p-error">le prénom est obligatoire</small>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
+              <div class="form-group phoneNumber">
                 <label for="telephone">Téléphone*</label>
-                <input id="telephone" type="number" class="form-control" autocomplete="off" placeholder="(+33) ...">
+                <input id="email" type="email"  pInputText class="form-control" formControlName='telephone' autocomplete="off" placeholder="06...">
 
+                <small *ngIf="demandeForm.controls.telephone.errors?.pattern && showError" class="p-error">le  numéro de téléphone est invalide</small>
+                <small *ngIf="demandeForm.controls.telephone.errors?.required && showError" class="p-error">le téléphone est obligatoire</small>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="email">Email*</label>
-                <input id="email" type="email" class="form-control" autocomplete="off" placeholder="votre email...">
+                <input id="email" type="email"  pInputText class="form-control" formControlName='email' autocomplete="off" placeholder="Votre email...">
+                <small *ngIf="demandeForm.controls.email.errors?.required && showError" class="p-error">l'email est obligatoire</small>
+                <small *ngIf="demandeForm.controls.email.errors?.email && showError" class="p-error">le format de l'email est incorrect</small>
+
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12">
               <div class="form-group">
-                <label for="comments">Message*</label>
-                <textarea id="comments" rows="4" class="form-control" placeholder="Your message..."></textarea>
+                <label for="comments">Message</label>
+                <textarea id="comments" pInputTextarea  rows="4" class="form-control" formControlName='message' placeholder="Votre message..."></textarea>
               </div>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="p-field-checkbox">
+                <p-checkbox name="group1" binary="true" formControlName='condition' inputId="condition"></p-checkbox>
+                <span for="condition"> J'accepte d'être contacté par un conseilleur pour valider ma demande </span>
+                <br/>
+                <small *ngIf="!demandeForm.get('condition').value" class="p-error">l'acceptation du condition de prise de contacte est obligatoire </small>
+            </div>
+
+              </div>
           </div>
         </form>
         </div>
        <div  class="row navigateOffer">
         <div class="col-4">
-          <a *ngIf='activeIndex>0' (click)='moveBack()' class="btn btn-soft-secondary prevButton">Précedent</a>
+          <a *ngIf='activeIndex>0' (click)='moveBack()' class="btn btn-soft-secondary prevButton">
+            <fa-icon class="icon-xs iconLeft"  [icon]="faCaretLeft"></fa-icon>
+            <fa-icon class="icon-xs iconLeft"  [icon]="faCaretLeft"></fa-icon>
+            Précedent</a>
         </div>
         <div class="col-3"></div>
-        <div class="col-5">
-          <a    (click)='moveNext()' class="btn btn-primary nextButton ">Suivant</a>
-          </div>
+        <div *ngIf='activeIndex<3' class="col-5">
+          <a    (click)='moveNext()' class="btn btn-primary nextButton ">Suivant
+             <fa-icon class="icon-xs iconRight"  [icon]="faCaretRight"></fa-icon>
+             <fa-icon class="icon-xs iconRight"  [icon]="faCaretRight"></fa-icon> </a>
+        </div>
+        <div *ngIf='activeIndex==3' class="col-5">
+          <a    (click)='sendDemande()' class="btn btn-primary nextButton ">Envoyer
+            <i-feather class="icon-size-15 ml-2 icon"   name="send"></i-feather>
+          </a>
+        </div>
       </div>
 
       </div>
     </div>
+
+    <div  *ngIf='activeIndex == 4' class="row align-items-center">
+      <div class="col-lg-12">
+        <div class="mb-4 mb-lg-0">
+          <img src="assets/images/features-img.png" width="30%" alt="" class="img-fluid d-block mx-auto">
+        </div>
+
+        <div class="  align-items-center text-center"  >
+        <h2 class=" line-height-1_4 mt-5">Merci pour l'inscription</h2>
+        <p class="    mb-4">On va vous contacter dans les brefs delais afin de finaliser votre demande</p>
+        <a   href="/"  class="btn btn-primary nextButton ">Retourner a la page d'accuel  </a>
+
+      </div>
+    </div>
+    </div>
+
   </div>
 </section>
 

@@ -14,10 +14,16 @@ export class ManageService {
     return this.http.get('assets/data.json');
   }
 
-  setDemande(demande: Demande): Observable<any> {
+  sendDemande(demande: Demande): Observable<any> {
     let url = this.serverUrl + 'darte/demande/'
     return this.http.post(url , demande)
   }
+
+  getDemande(id): Observable<any> {
+    let url = this.serverUrl + 'darte/demande/'+id;
+    return this.http.get(url)
+  }
+
 
   getParams():Observable<any>  {
 

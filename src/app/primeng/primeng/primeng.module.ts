@@ -6,6 +6,10 @@ import {SliderModule} from 'primeng/slider';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CheckboxModule} from 'primeng/checkbox';
+import {DividerModule} from 'primeng/divider';
+
 const modules = [
   ButtonModule,
   CarouselModule,
@@ -13,7 +17,10 @@ const modules = [
   SliderModule,
   InputTextModule,
   InputNumberModule,
-  RadioButtonModule
+  RadioButtonModule,
+  InputTextareaModule,
+  CheckboxModule,
+  DividerModule
 ]
 
 @NgModule({

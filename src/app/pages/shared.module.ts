@@ -7,6 +7,7 @@ import {
 } from 'angular-feather/icons';
 import { ScrollspyDirective } from './scrollspy.directive';
 
+
 const icons = {
   Mail, Link, PhoneCall, Clock, MapPin, Facebook, Twitter, Instagram, Linkedin, Send, Calendar, User, Server, Rss, Layout, LifeBuoy,
   ArrowRightCircle, PieChart, Triangle

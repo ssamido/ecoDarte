@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -20,8 +20,13 @@ import { PricingComponent } from './pages/pricing/pricing.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { SharedModule } from './pages/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TirageComponent } from './pages/tirage/tirage.component';
+import { DiceComponent } from './pages/tirage/dice/dice.component';
+
 @NgModule({
-  declarations: [AppComponent,IndexComponent,FeaturesComponent, PricingComponent, BlogComponent,OffersComponent, ContactComponent, ServicesComponent, FooterComponent],
+  declarations: [AppComponent,IndexComponent,FeaturesComponent, PricingComponent, BlogComponent,
+    OffersComponent, ContactComponent, ServicesComponent, FooterComponent,TirageComponent,
+    DiceComponent],
   imports: [
     BrowserModule,
     FontAwesomeModule,
@@ -38,6 +43,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule
+
 
   ],
   providers: [],

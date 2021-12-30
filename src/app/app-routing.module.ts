@@ -1,3 +1,4 @@
+import { TirageComponent } from './pages/tirage/tirage.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './pages/index/index.component';
@@ -6,7 +7,7 @@ import { OffersComponent } from './pages/offers/offers.component';
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent,
+    component: TirageComponent,
 },
 {
   path: 'offers',

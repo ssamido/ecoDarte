@@ -1,18 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-
+@import "assets/scss/variables";
 .p-slider .p-slider-range {
-    background: #5ad9ac !important;
+    background: $primary !important;
 }
 
 .p-slider .p-slider-handle {
-    border: 2px solid #5ad9ac !important;
+    border: 2px solid $primary !important;
 }
 
 .p-steps .p-steps-item.p-highlight .p-steps-number {
     background: #E8F5E9  ;
-    color: #5ad9ac !important;
+    color: $primary !important;
     font-size: 30px !important;
 
 }
@@ -50,11 +50,14 @@
         padding: 5px 0;
 
     }
+    .active {
+      border: 1px  solid $primary;;
+    }
 }
 
 .montantOffer {
     font-size: 30px;
-    color : #5ad9ac;
+    color : $primary;
 }
 
 .p-component {
@@ -63,4 +66,14 @@
 
 .errorMsg {
   color: #f44336;
+}
+
+.verdure {
+  color : $primary;
+}
+
+
+.p-inputnumber, p-inputnumber {
+    width: 100% !important;
+
 }

@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="col-lg-12 ">
+    <div class="text-center">
+    <p *ngIf="!jourEcheance && isRollClicked" class="p-error">Veuillez selectionner un jour d'écheance</p>
+  </div>
+    <div class="text-center m-4">
+      <a *ngIf='showResult' (click)='close()' class="btn btn-primary nextButton text-center">Fermer </a>
+      <a  *ngIf='!showResult' (click)='rollDice()' class="btn btn-primary nextButton text-center">Lancer le tirage au sort </a>
+    </div>
+    <!--Deuxieme phase-->
+
+    <div *ngIf='isSecondPhase'>
+      <h4>Determination de l'eventuel semestre de reversement sur {{(offer.phaseFin - offer.phaseDeb + 1) / 6 }} semestres</h4>
+       <div *ngIf="roller$ | async as semestre" class="result">
+        <p class='font-size-35' >{{semestre}}</p>
+       </div>
+    </div>
+
+    <div>
+
+      <div id='dice1' class="dice dice-one ">
+        <div id="dice-one-side-one" class='side one'>
+          <div class="dot one-1"></div>
+        </div>
+        <div id="dice-one-side-two" class='side two'>
+          <div class="dot two-1"></div>
+          <div class="dot two-2"></div>
+        </div>
+        <div id="dice-one-side-three" class='side three'>
+          <div class="dot three-1"></div>
+          <div class="dot three-2"></div>
+          <div class="dot three-3"></div>
+        </div>
+        <div id="dice-one-side-four" class='side four'>
+          <div class="dot four-1"></div>
+          <div class="dot four-2"></div>
+          <div class="dot four-3"></div>
+          <div class="dot four-4"></div>
+        </div>
+        <div id="dice-one-side-five" class='side five'>
+          <div class="dot five-1"></div>
+          <div class="dot five-2"></div>
+          <div class="dot five-3"></div>
+          <div class="dot five-4"></div>
+          <div class="dot five-5"></div>
+        </div>
+        <div id="dice-one-side-six" class='side six'>
+          <div class="dot six-1"></div>
+          <div class="dot six-2"></div>
+          <div class="dot six-3"></div>
+          <div class="dot six-4"></div>
+          <div class="dot six-5"></div>
+          <div class="dot six-6"></div>
+        </div>
+      </div>
+
+      <p *ngIf='showResult' class=" font-weight-semibold  m-2"   >Le mois du reversement est le <b>{{result+offer.phaseDeb - 1 }}</b>éme mois. Par conséquent, la date du reversement sera le  : <b >{{dateReversement | date :'dd/MM/yyyy'}}   </b></p>
+
+    </div>
+
+  </div>

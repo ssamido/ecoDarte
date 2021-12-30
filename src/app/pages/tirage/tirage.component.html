@@ -1,0 +1,46 @@
+<!-- tirage Start -->
+<section class="section bg-light feather-bg-img" style="background-image: url(assets/images/features-bg-img.png);"
+  id="features">
+  <div class="container">
+
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <div *ngIf='!isStarted'>
+          <div class="mb-4 mb-lg-0">
+            <img src="assets/images/features-img.png" width="30%" alt="" class="img-fluid d-block mx-auto">
+          </div>
+
+          <div class="  align-items-center text-center">
+            <h2 class=" line-height-1_4 mt-5">Bienvenue au tirage au sort</h2>
+            <p class="    mb-4">ce tirage au sort va defenir la date exacte de la collection d'argent</p>
+            <a (click)='start()' class="btn btn-primary nextButton ">Commencer </a>
+          </div>
+        </div>
+        <div class="m-4">
+          <h5>Eventuelle periode du reversement: [{{rangeOffer[0] + ' - ' + rangeOffer[1]}}] sur {{offer.nbrMois}} mois</h5>
+          <p-slider disabled= true [(ngModel)]="rangeOffer" [range]="true" [min]="0" [max]="offer.nbrMois"> </p-slider>
+        </div>
+        <p-divider align="center">
+          <span class="p-tag">Tirage au sort</span>
+        </p-divider>
+
+        <div class="row">
+          <span class=" font-weight-semibold ">Selectionner le jour des échéances (reversement /versement) :</span>
+          <p-radioButton class="ml-2" [(ngModel)]="jourEcheance" value="5" inputId="homme"></p-radioButton>
+          <span class="ml-1 " for="Homme">5</span>
+
+          <p-radioButton class="ml-3" [(ngModel)]="jourEcheance" value="10" inputId="femme"></p-radioButton>
+          <span class="ml-1" for="femme">10</span>
+
+          <p-radioButton class="ml-3" [(ngModel)]="jourEcheance" value="15" inputId="femme"></p-radioButton>
+          <span class="ml-1" for="femme">15</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <app-dice [offer]='offer' [jourEcheance]='jourEcheance'></app-dice>
+</section>
+

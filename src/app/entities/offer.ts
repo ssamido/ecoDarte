@@ -4,9 +4,12 @@ export interface Offer {
    phaseFin?  : number ;
    fraisService?  : number;
    fraisPriorite? : number;
-   numeroPriorite? : number;
-   totalFrais? : number;
-   libellePriorite?  : string;
-   isSelected?  : boolean
+   numPriorite? : number;
+   montantTotal? : number;
+   mensualiteHF? : number;
+   nbrMois? : number;
+   mensualiteTotal? : number;
+   isSelected?: boolean
+
 
 }
